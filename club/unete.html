@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Únete · Club Sierra Alta</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Club Sierra Alta</a>
+    <button id="tema">Tema oscuro</button>
+    <nav><a href="index.html">Inicio</a> <a href="rutas.html">Rutas</a> <a class=activa href="unete.html">Únete</a></nav>
+  </header>
+  <main>
+    <h1>Únete a una salida</h1>
+    <form id="formulario" novalidate>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text">
+      <span class="error" id="e-nombre"></span>
+      <label for="email">Correo electrónico</label>
+      <input id="email" type="email">
+      <span class="error" id="e-email"></span>
+      <label for="ruta">Ruta</label>
+      <select id="ruta"></select>
+      <label for="personas">Número de personas</label>
+      <input id="personas" type="number" min="1" max="6" value="1">
+      <span class="error" id="e-personas"></span>
+      <p id="total">Total: 0 €</p>
+      <button type="submit">Apuntarme</button>
+      <p id="exito" hidden></p>
+    </form>
+  </main>
+  <footer>
+    <p>© <span id="anio"></span> Club Sierra Alta</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto · Café La Esquina</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Café La Esquina</a>
+    <nav><a href="index.html">Inicio</a> <a href="carta.html">Carta</a> <a class=activa href="contacto.html">Contacto</a></nav>
+  </header>
+  <main>
+    <h1>Contacto</h1>
+    <p>Escríbenos y te respondemos en un día laborable.</p>
+    <form id="formulario" novalidate>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text">
+      <span class="error" id="e-nombre"></span>
+      <label for="email">Correo electrónico</label>
+      <input id="email" type="email">
+      <span class="error" id="e-email"></span>
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" rows="5"></textarea>
+      <span class="error" id="e-mensaje"></span>
+      <button type="submit">Enviar</button>
+      <p id="exito" hidden>Mensaje preparado. Esta práctica no envía datos reales.</p>
+    </form>
+  </main>
+  <footer>
+    <p>© <span id="anio"></span> Café La Esquina</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

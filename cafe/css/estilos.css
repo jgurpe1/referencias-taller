@@ -1,0 +1,23 @@
+body { margin: 0; font-family: Georgia, serif; background: #fffaf3; color: #2b1d12; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: #5b6b2f; }
+header a { color: white; text-decoration: none; margin-left: 14px; }
+header .logo { margin-left: 0; font-weight: bold; }
+a.activa { border-bottom: 2px solid white; }
+main { max-width: 800px; margin: 0 auto; padding: 24px; }
+footer { text-align: center; padding: 14px; background: #5b6b2f; color: white; }
+footer p { margin: 0; }
+.portada { text-align: center; padding: 30px 0; }
+.estado { display: inline-block; padding: 3px 12px; border-radius: 20px; background: #ddd; font-weight: bold; }
+.estado.abierto { background: #cfe8c9; color: #1f5a1f; }
+.tarjetas, .productos { display: flex; flex-wrap: wrap; gap: 14px; }
+article { background: white; border: 1px solid #e0d6c4; border-radius: 8px; padding: 14px; width: 220px; }
+article h2 { margin: 0 0 6px; font-size: 18px; }
+article p { margin: 0; }
+.filtros { margin-bottom: 10px; }
+.filtros button { padding: 6px 14px; margin-right: 6px; border: 1px solid #5b6b2f; background: white; border-radius: 20px; cursor: pointer; }
+.filtros button.marcado { background: #5b6b2f; color: white; }
+form { display: flex; flex-direction: column; max-width: 420px; gap: 6px; }
+input, textarea { padding: 8px; font-size: 16px; }
+form button { align-self: flex-start; padding: 8px 18px; background: #5b6b2f; color: white; border: 0; border-radius: 6px; cursor: pointer; }
+.error { color: #b3261e; font-size: 14px; }
+#exito { color: #1f5a1f; font-weight: bold; }

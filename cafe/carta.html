@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta · Café La Esquina</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Café La Esquina</a>
+    <nav><a href="index.html">Inicio</a> <a class=activa href="carta.html">Carta</a> <a href="contacto.html">Contacto</a></nav>
+  </header>
+  <main>
+    <h1>Nuestra carta</h1>
+    <div class="filtros">
+      <button data-cat="todos">Todos</button>
+      <button data-cat="cafes">Cafés</button>
+      <button data-cat="dulces">Dulces</button>
+      <button data-cat="salados">Salados</button>
+    </div>
+    <p id="contador">Mostrando 8 productos</p>
+    <section class="productos">
+      <article data-cat="cafes"><h2>Espresso</h2><p>1,40 €</p></article>
+      <article data-cat="cafes"><h2>Café con leche</h2><p>1,80 €</p></article>
+      <article data-cat="cafes"><h2>Capuchino</h2><p>2,20 €</p></article>
+      <article data-cat="dulces"><h2>Croissant</h2><p>1,60 €</p></article>
+      <article data-cat="dulces"><h2>Tarta del día</h2><p>3,50 €</p></article>
+      <article data-cat="dulces"><h2>Galleta de avena</h2><p>1,20 €</p></article>
+      <article data-cat="salados"><h2>Tostada de tomate</h2><p>2,50 €</p></article>
+      <article data-cat="salados"><h2>Bocadillo de tortilla</h2><p>4,00 €</p></article>
+    </section>
+  </main>
+  <footer>
+    <p>© <span id="anio"></span> Café La Esquina</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

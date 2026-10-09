@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rutas · Club Sierra Alta</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Club Sierra Alta</a>
+    <button id="tema">Tema oscuro</button>
+    <nav><a href="index.html">Inicio</a> <a class=activa href="rutas.html">Rutas</a> <a href="unete.html">Únete</a></nav>
+  </header>
+  <main>
+    <h1>Nuestras rutas</h1>
+    <label for="filtro">Dificultad</label>
+    <select id="filtro">
+      <option value="todas">Todas</option>
+      <option value="fácil">Fácil</option>
+      <option value="media">Media</option>
+      <option value="difícil">Difícil</option>
+    </select>
+    <section id="lista" class="lista"></section>
+  </main>
+  <footer>
+    <p>© <span id="anio"></span> Club Sierra Alta</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

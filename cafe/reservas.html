@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reservas · Café La Esquina</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Café La Esquina</a>
+    <nav><a href="index.html">Inicio</a> <a href="carta.html">Carta</a> <a href="contacto.html">Contacto</a> <a class=activa href="reservas.html">Reservas</a></nav>
+  </header>
+  <main>
+    <h1>Reservas</h1>
+    <p>Reserva tu mesa. Te esperamos.</p>
+    <form id="form-reserva" novalidate>
+      <label for="r-nombre">Nombre</label>
+      <input id="r-nombre" type="text">
+      <span class="error" id="er-nombre"></span>
+      <label for="r-fecha">Fecha</label>
+      <input id="r-fecha" type="date">
+      <span class="error" id="er-fecha"></span>
+      <label for="r-hora">Hora</label>
+      <select id="r-hora"><option value="">Elige una hora</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option></select>
+      <span class="error" id="er-hora"></span>
+      <label for="r-personas">Número de personas</label>
+      <input id="r-personas" type="number" min="1" max="8" value="2">
+      <span class="error" id="er-personas"></span>
+      <button type="submit">Reservar</button>
+      <p id="r-exito" hidden></p>
+    </form>
+  </main>
+  <footer>
+    <p>© <span id="anio"></span> Café La Esquina</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

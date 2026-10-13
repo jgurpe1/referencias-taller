@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Material · Club Sierra Alta</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Club Sierra Alta</a>
+    <button id="tema">Tema oscuro</button>
+    <nav><a href="index.html">Inicio</a> <a href="rutas.html">Rutas</a> <a href="unete.html">Únete</a> <a class=activa href="material.html">Material</a></nav>
+  </header>
+  <main>
+    <h1>Material para la salida</h1>
+    <label for="nivel">Dificultad de la ruta</label>
+    <select id="nivel">
+      <option value="">Elige una dificultad</option>
+      <option value="fácil">Fácil</option>
+      <option value="media">Media</option>
+      <option value="difícil">Difícil</option>
+    </select>
+    <p id="progreso"></p>
+    <ul id="material"></ul>
+  </main>
+  <footer>
+    <p>© <span id="anio"></span> Club Sierra Alta</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

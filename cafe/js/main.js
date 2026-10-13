@@ -11,24 +11,44 @@ if (estado) {
   if (abierto) estado.classList.add('abierto');
 }
 
-// Filtro de la carta y contador
+// Filtro de la carta, buscador y contador
 const botones = document.querySelectorAll('.filtros button');
 const productos = document.querySelectorAll('.productos article');
 const contador = document.getElementById('contador');
+const buscar = document.getElementById('buscar');
+const sinResultados = document.getElementById('sin-resultados');
+let categoria = 'todos';
+const limpiar = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+const aplicarFiltros = () => {
+  const texto = buscar ? limpiar(buscar.value) : '';
+  let visibles = 0;
+  productos.forEach((p) => {
+    const nombre = limpiar(p.querySelector('h2').textContent);
+    const mostrar = (categoria === 'todos' || p.dataset.cat === categoria) && nombre.includes(texto);
+    p.hidden = !mostrar;
+    if (mostrar) visibles++;
+  });
+  contador.textContent = 'Mostrando ' + visibles + ' productos';
+  if (sinResultados) sinResultados.hidden = visibles !== 0;
+};
 botones.forEach((boton) => {
   boton.addEventListener('click', () => {
-    const cat = boton.dataset.cat;
-    let visibles = 0;
+    categoria = boton.dataset.cat;
     botones.forEach((b) => b.classList.toggle('marcado', b === boton));
-    productos.forEach((p) => {
-      const mostrar = cat === 'todos' || p.dataset.cat === cat;
-      p.hidden = !mostrar;
-      if (mostrar) visibles++;
-    });
-    contador.textContent = 'Mostrando ' + visibles + ' productos';
+    aplicarFiltros();
   });
 });
 if (botones.length) botones[0].classList.add('marcado');
+if (buscar) buscar.addEventListener('input', aplicarFiltros);
+
+// Botón de tema claro / oscuro
+const botonTema = document.getElementById('tema');
+if (botonTema) {
+  botonTema.addEventListener('click', () => {
+    const oscuro = document.body.classList.toggle('oscuro');
+    botonTema.textContent = oscuro ? 'Tema claro' : 'Tema oscuro';
+  });
+}
 
 // Validación del formulario de contacto
 const formulario = document.getElementById('formulario');
@@ -40,9 +60,24 @@ if (formulario) {
     const mensaje = document.getElementById('mensaje').value.trim();
     document.getElementById('e-nombre').textContent = nombre === '' ? 'Escribe tu nombre.' : '';
     document.getElementById('e-email').textContent = email.includes('@') ? '' : 'Escribe un correo válido.';
-    document.getElementById('e-mensaje').textContent = mensaje.length < 10 ? 'El mensaje debe tener al menos 10 caracteres.' : '';
-    const bien = nombre !== '' && email.includes('@') && mensaje.length >= 10;
+    let errorMensaje = '';
+    if (mensaje.length < 10) errorMensaje = 'El mensaje debe tener al menos 10 caracteres.';
+    else if (document.getElementById('mensaje').value.length > 200) errorMensaje = 'El mensaje no puede pasar de 200 caracteres.';
+    document.getElementById('e-mensaje').textContent = errorMensaje;
+    const bien = nombre !== '' && email.includes('@') && errorMensaje === '';
     document.getElementById('exito').hidden = !bien;
+  });
+}
+
+// Contador de caracteres del mensaje
+const campoMensaje = document.getElementById('mensaje');
+const cuenta = document.getElementById('cuenta');
+if (campoMensaje && cuenta) {
+  campoMensaje.addEventListener('input', () => {
+    const n = campoMensaje.value.length;
+    cuenta.textContent = n + ' / 200';
+    cuenta.classList.toggle('aviso', n >= 180 && n <= 200);
+    cuenta.classList.toggle('limite', n > 200);
   });
 }
 

@@ -28,3 +28,13 @@ form button { align-self: flex-start; padding: 8px 18px; background: #5b6b2f; co
 #total-pedido { font-weight: bold; }
 select { padding: 8px; font-size: 16px; }
 #r-exito { color: #1f5a1f; font-weight: bold; }
+#buscar { margin-bottom: 10px; width: 100%; max-width: 320px; box-sizing: border-box; }
+#sin-resultados { font-style: italic; }
+#tema { padding: 4px 10px; cursor: pointer; margin-left: auto; margin-right: 10px; }
+body.oscuro { background: #1f1710; color: #f1e6d6; }
+body.oscuro article, body.oscuro #pedido { background: #2d2218; border-color: #4a3a2a; color: #f1e6d6; }
+body.oscuro .filtros button, body.oscuro .anadir { background: #2d2218; color: #f1e6d6; }
+body.oscuro .filtros button.marcado { background: #5b6b2f; }
+#cuenta { font-size: 14px; color: #6b5a47; }
+#cuenta.aviso { color: #b36b00; font-weight: bold; }
+#cuenta.limite { color: #b3261e; font-weight: bold; }

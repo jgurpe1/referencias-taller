@@ -9,10 +9,12 @@
 <body>
   <header>
     <a class="logo" href="index.html">Café La Esquina</a>
+    <button id="tema">Tema oscuro</button>
     <nav><a href="index.html">Inicio</a> <a class=activa href="carta.html">Carta</a> <a href="contacto.html">Contacto</a> <a href="reservas.html">Reservas</a></nav>
   </header>
   <main>
     <h1>Nuestra carta</h1>
+    <input id="buscar" type="search" placeholder="Buscar producto...">
     <div class="filtros">
       <button data-cat="todos">Todos</button>
       <button data-cat="cafes">Cafés</button>
@@ -20,6 +22,7 @@
       <button data-cat="salados">Salados</button>
     </div>
     <p id="contador">Mostrando 8 productos</p>
+    <p id="sin-resultados" hidden>No hay productos que coincidan.</p>
     <section class="productos">
       <article data-cat="cafes"><h2>Espresso</h2><p>1,40 €</p><button class="anadir">Añadir</button></article>
       <article data-cat="cafes"><h2>Café con leche</h2><p>1,80 €</p><button class="anadir">Añadir</button></article>
@@ -34,12 +37,3 @@
       <h2>Mi pedido</h2>
       <ul id="lista-pedido"></ul>
       <p id="total-pedido">Total: 0,00 €</p>
-      <button id="vaciar">Vaciar pedido</button>
-    </aside>
-  </main>
-  <footer>
-    <p>© <span id="anio"></span> Café La Esquina</p>
-  </footer>
-  <script src="js/main.js"></script>
-</body>
-</html>

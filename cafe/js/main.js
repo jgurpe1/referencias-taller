@@ -45,3 +45,66 @@ if (formulario) {
     document.getElementById('exito').hidden = !bien;
   });
 }
+
+// Pedido en la carta
+const lista = document.getElementById('lista-pedido');
+if (lista) {
+  const pedido = {};
+  const euros = (n) => n.toFixed(2).replace('.', ',') + ' €';
+  const pintarPedido = () => {
+    lista.innerHTML = '';
+    let total = 0;
+    Object.keys(pedido).forEach((nombre) => {
+      const linea = pedido[nombre];
+      total += linea.precio * linea.cantidad;
+      const li = document.createElement('li');
+      li.textContent = nombre + ' × ' + linea.cantidad + ' — ' + euros(linea.precio * linea.cantidad);
+      lista.appendChild(li);
+    });
+    document.getElementById('total-pedido').textContent = 'Total: ' + euros(total);
+  };
+  document.querySelectorAll('.anadir').forEach((boton) => {
+    boton.addEventListener('click', () => {
+      const articulo = boton.parentElement;
+      const nombre = articulo.querySelector('h2').textContent;
+      const precio = parseFloat(articulo.querySelector('p').textContent.replace(',', '.'));
+      if (!pedido[nombre]) pedido[nombre] = { precio: precio, cantidad: 0 };
+      pedido[nombre].cantidad++;
+      pintarPedido();
+    });
+  });
+  document.getElementById('vaciar').addEventListener('click', () => {
+    Object.keys(pedido).forEach((k) => delete pedido[k]);
+    pintarPedido();
+  });
+}
+
+// Formulario de reservas
+const formReserva = document.getElementById('form-reserva');
+if (formReserva) {
+  formReserva.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('r-nombre').value.trim();
+    const fecha = document.getElementById('r-fecha').value;
+    const hora = document.getElementById('r-hora').value;
+    const n = parseInt(document.getElementById('r-personas').value, 10);
+    let errorFecha = '';
+    if (fecha === '') {
+      errorFecha = 'Elige una fecha.';
+    } else {
+      const dia = new Date(fecha + 'T00:00:00');
+      const hoy = new Date();
+      hoy.setHours(0, 0, 0, 0);
+      if (dia < hoy) errorFecha = 'La fecha no puede ser pasada.';
+      else if (dia.getDay() === 0) errorFecha = 'Los domingos estamos cerrados.';
+    }
+    document.getElementById('er-nombre').textContent = nombre === '' ? 'Escribe tu nombre.' : '';
+    document.getElementById('er-fecha').textContent = errorFecha;
+    document.getElementById('er-hora').textContent = hora === '' ? 'Elige una hora.' : '';
+    document.getElementById('er-personas').textContent = n >= 1 && n <= 8 ? '' : 'Entre 1 y 8 personas.';
+    const bien = nombre !== '' && errorFecha === '' && hora !== '' && n >= 1 && n <= 8;
+    const exito = document.getElementById('r-exito');
+    exito.hidden = !bien;
+    if (bien) exito.textContent = 'Reserva para ' + n + ' persona(s) el ' + fecha + ' a las ' + hora + ', a nombre de ' + nombre + '.';
+  });
+}
